@@ -22,14 +22,16 @@ public class rollDice {
 		String crapsString = "";
 		int crapsInt = diceA + diceB;
 		
-		// Frist checks if it's a six sided die, and if the sum balance equals requirements
+		// First checks if it's a six sided die, and if the sum balance equals requirements
+		
 		if (sides == 6 && (crapsInt == 2 || crapsInt == 12 || crapsInt == 3)) {
+			if (counter == 1) {
+				crapsString += "Craps!\n";
+			}
 			if (crapsInt == 2) {
-				crapsString = "Craps and Snake Eyes!\n";
-			} else if (crapsInt == 3) {
-				crapsString = "Craps!\n";
-			} else {
-				crapsString = "Craps and Box Cars!\n";
+				crapsString += "Snake Eyes!\n";
+			} else if (crapsInt == 12) {
+				crapsString += "Box Cars!\n";
 			}
 		}
 		
@@ -65,7 +67,8 @@ public class rollDice {
 				System.out.println("Thank you, goodbye.");
 				break;
 			} else {
-				System.out.println("Please enter a valid selection.");
+				System.out.println("Please enter a valid selection. (Y/N)");
+				userChoice = scnr.next();
 			}
 		} while (true);
 	}
